@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import { Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
+import Dashboard from './Components/Dashboard';
+
+import Login from './Components/login';
+import Signup from './Components/signup';
+import MailCheck from './Components/MailCheck';
+import ResetPassword from './Components/ResetPassword';
+
 
 function App() {
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route exact path="/">
+          <Dashboard></Dashboard>
+        </Route>
+        <Route  path="/login">
+          <Login></Login>
+        </Route>
+        <Route  path="/signup">
+          <Signup></Signup>
+        </Route>
+        <Route path="/mailcheck">
+          <MailCheck></MailCheck>
+        </Route>
+        <Route path="/resetpassword">
+          <ResetPassword></ResetPassword>
+        </Route>
+        </Switch>
     </div>
   );
 }
